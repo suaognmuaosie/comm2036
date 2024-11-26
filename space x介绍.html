@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: white;
+            position: relative;
+            min-height: 100vh;
+            background-color: #000;
+        }
+
+        #bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .nav-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 5rem;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+                         0 0 20px rgba(255, 255, 255, 0.5),
+                         0 0 30px rgba(255, 255, 255, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .mission-statement {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            margin: 0 auto;
+            max-width: 800px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .content-wrapper {
+            display: flex;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            gap: 2rem;
+        }
+
+        .content-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .content-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: -2rem;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        .timeline-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #fff;
+            margin: 4rem 0 2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+                         0 0 20px rgba(255, 255, 255, 0.5),
+                         0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                       0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                       0 0 20px rgba(255, 255, 255, 0.5),
+                       0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-item > div {
+            width: 45%;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) > div {
+            margin-right: 55%;
+        }
+
+        .timeline-item:nth-child(even) > div {
+            margin-left: 55%;
+        }
+
+        .timeline-item h2 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .header h1 {
+                font-size: 3rem;
+            }
+
+            .timeline-container::before {
+                left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: 2rem;
+            }
+
+            .timeline-item > div {
+                width: calc(100% - 4rem);
+                margin-left: 4rem !important;
+            }
+        }
+
+        .next-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+
+        .next-button a {
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.5rem 1rem; /* Adjusted for a smaller button */
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 1rem; /* Smaller font size for the button */
+        }
+
+        .next-button a:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <img id="bg-image" src="cox442721_a_dramatic_scene_of_a_SpaceX_rocket_launch_with_a_lar_a33788ff-ab1e-47a5-920c-a76115b61af4.png" alt="SpaceX Background">
+    
+    <div class="nav-button">INTRODUCTION</div>
+
+    <div class="header">
+        <h1>SpaceX</h1>
+        <div class="mission-statement">
+            "Our mission is to develop advanced rockets and spacecraft to enable humanity to reach Mars and beyond. It's an ambitious path, but we believe in the creativity and perseverance of the human spirit to make this dream a reality."
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content-left">
+            <h2>About SpaceX</h2>
+            <p>SpaceX (Space Exploration Technologies Corp.) is a private aerospace manufacturer and space transportation services company founded by Elon Musk in 2002. SpaceX's mission is to advance human space exploration and enable humanity to become a multi-planetary species, particularly through the realization of the Mars colonization plan.</p>
+            
+            <p><a href="<a href="https://www.spacex.com"" class="underline" target="_blank">Click this URL</a> target="_blank" rel="noopener noreferrer">www.spacex.com</a></p>
+
+            <h2>SpaceX has developed:</h2>
+            <ul>
+                <li>Falcon series rockets</li>
+                <li>Dragon series spacecraft</li>
+            </ul>
+
+            <h2>SpaceX is developing:</h2>
+            <ul>
+                <li>Starship</li>
+                <li>Starlink</li>
+            </ul>
+        </div>
+
+        <div class="content-right">
+            <div class="video-container">
+                <video controls>
+                    <source src="ScreenRecording_11-24-2024 02-51-22_1.mp4" type="video/mp4">
+                    您的浏览器不支持 video 标签。
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="timeline-title">SpaceX Timeline</h1>
+
+    <div class="timeline">
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div>
+                    <h2>2002</h2>
+                    <p>SpaceX is established with the goal of reducing space transportation costs and enabling the colonization of Mars.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div>
+                    <h2>2008</h2>
+                    <p>Falcon 1 becomes the first privately developed liquid-fueled rocket to reach Earth orbit.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div>
+                    <h2>2010</h2>
+                    <p>The inaugural flight of Falcon 9 successfully delivers the Dragon spacecraft into orbit.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div>
+                    <h2>2012</h2>
+                    <p>Dragon becomes the first commercial spacecraft to dock with the ISS.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div>
+                    <h2>2015</h2>
+                    <p>SpaceX achieves the first-ever orbital-class rocket landing with Falcon 9's first stage.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div>
+                    <h2>2018</h2>
+                    <p>Falcon Heavy completes its maiden flight, becoming the world's most powerful operational rocket.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div>
+                    <h2>2019</h2>
+                    <p>SpaceX begins deploying the Starlink satellite constellation for global internet coverage.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div>
+                    <h2>2020</h2>
+                    <p>Crew Dragon successfully transports astronauts to the ISS, marking the first crewed orbital flight by a private company.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div>
+                    <h2>2023</h2>
+                    <p>The first orbital test flight of Starship is conducted, designed for Moon and Mars missions.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div>
+                    <h2>2024</h2>
+                    <p>SpaceX achieves a major milestone by successfully catching the Super Heavy booster with Mechazilla arms.</p>
+                    <p>SpaceX conducts the sixth test flight of Starship, with the booster performing a controlled splashdown.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small button added here -->
+    <div class="next-button">
+      <a href="index.html" class="underline" target="_blank">Next <!-- Link to another page -->
+    </div>
+</body>
+</html>

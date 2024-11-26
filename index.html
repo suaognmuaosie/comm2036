@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Migration Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow-y: auto;
+            background-color: #000;
+            font-family: 'Playfair Display', serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7; /* 背景图片暗度调低一点 */
+            background-attachment: fixed; /* 固定背景图片 */
+        }
+
+        .container {
+            width: 100%;
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .divider {
+            width: 60%;
+            max-width: 600px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            margin: 20px 0 40px 0;
+        }
+
+        .timeline {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .timeline-button {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.8); /* 时间节点透明度调低一点 */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            color: #000;
+            transition: transform 0.3s;
+        }
+
+        .timeline-button:hover {
+            transform: scale(1.1);
+        }
+
+        .timeline-label {
+            background-color: rgba(255, 255, 255, 0.8); /* 事件标签透明度调低一点 */
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: #000;
+            font-size: 16px;
+            width: 200px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .next-button {
+    position: fixed;
+    bottom: 20px;
+    right: 1px;
+    display: flex;
+    justify-content: center;
+        }
+
+        .next-button a {
+            background-color: rgba(255, 249, 249, 0.809);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.5rem 1rem; /* Adjusted for a smaller button */
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 1rem; /* Smaller font size for the button */
+        }
+
+        .next-button a:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Migration Q&A</title>
+    <style>
+        /* 保持链接的样式与原文本一致 */
+        .timeline-label a {
+            color: inherit;  /* 继承原来的颜色 */
+            text-decoration: none;  /* 移除下划线 */
+        }
+        .introduction {
+      position: absolute;
+      top: 20px; /* Distance from the top */
+      left: 20px; /* Distance from the left */
+      background-color: rgba(128, 128, 128, 0.5); /* Gray transparent background */
+      color: white; /* White text */
+      font-weight: bold; /* Bold text */
+      padding: 10px 15px; /* Padding */
+      border-radius: 5px; /* Rounded corners */
+      z-index: 10; /* Ensure it is above other elements */
+    }
+    </style>
+</head>
+<body>
+    <img src="2411732372286_.pic_hd.jpg" id="bg-image" />
+    <div class="introduction">INTRODUCTION</div> <!-- 新增的INTRODUCTION -->
+
+    <div class="container">
+        <h1 id="musks-mars-migration-timeline" class="title">Mars Migration Q&A</h1>
+
+        <div class="divider"></div>
+
+        <div id="timeline" class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-button">
+                    Q1
+                </div>
+
+                <div class="timeline-label">
+                    <a href="q1.html">Is Mars Really Suitable for Human Habitation?</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-button">
+                    Q2
+                </div>
+
+                <div class="timeline-label">
+                    <a href="q2.html">What Are the Chances of Success?</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-button">
+                    Q3
+                </div>
+
+                <div class="timeline-label">
+                    <a href="q3.html">How Will the Mars Base Look?</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-button">
+                    Q4
+                </div>
+
+                <div class="timeline-label">
+                    <a href="q4.html">What's the Cost of Mars Migration?</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-button">
+                    Q5
+                </div>
+
+                <div class="timeline-label">
+                    <a href="q5.html">What Will the Mars City Look Like?</a>
+    <!-- Small button added here -->
+    <div class="next-button">
+        <a href="信封.html" class="underline" target="_blank">Next <!-- Link to another page -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

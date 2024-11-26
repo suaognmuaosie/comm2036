@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost in the Woods</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('WechatIMG2289.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      animation: bgAnimation 20s ease infinite;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* 上移内容 */
+      align-items: center;
+      height: 100vh;
+      color: rgb(245, 243, 242);
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding-top: 50px; /* 添加顶部内边距以调整位置 */
+      position: relative; /* 方便定位按钮组 */
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    input[type="password"] {
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      width: 200px;
+    }
+   
+    .tip {
+      font-size: 0.8rem; /* Smaller font size */
+      color: #bababa; /* Light gray color */
+      margin: 0.5rem 0; /* Spacing above and below */
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      background-color: rgba(245, 245, 220, 0.5); /* 米白色，接近透明 */
+      color: #333; /* 灰黑色 */
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 0.5rem; /* 减少按钮间距 */
+      transition: background-color 0.3s; /* Transition effect */
+    }
+
+    button:hover {
+      background-color: rgba(224, 224, 224, 0.5); /* Hover effect，更透明 */
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-around; /* 等间距排列按钮 */
+      width: 100%; /* 容器宽度 */
+      position: absolute; /* 绝对定位 */
+      bottom: 150px; /* 距离底部的距离，向上移动 */
+    }
+
+    /* 特殊样式用于“Take me home”按钮 */
+    .home-button {
+      background-color: white; /* 白色背景 */
+      color: #333; /* 灰黑色 */
+      transition: background-color 0.3s; /* Transition effect */
+    }
+
+    .home-button:hover {
+      background-color: #f0f0f0; /* 悬停时的背景色 */
+    }
+
+    @keyframes bgAnimation {
+      0% {
+        background-position: center center;
+      }
+      50% {
+        background-position: 55% 45%;
+      }
+      100% {
+        background-position: center center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ready to leave Earth?</h1>
+
+    <p>Please enter our password!<br>Don't worry, we'll lead you back home.</p>
+    <input type="password" id="password" placeholder="Enter password" />
+    <div class="tip">Hint: The most suitable planet for human life besides Earth</div>
+    
+    <!-- 修改为使用 home-button 类 -->
+    <button class="home-button" onclick="checkPassword()">Take me home</button>
+
+    <!-- 新增按钮组 -->
+    <div class="button-group">
+      <button onclick="window.location.href='采访视频.html'">INTERVIEW</button>
+      <button onclick="window.location.href='马斯克人物介绍.html'">INTRODUCTION</button>
+      <button onclick="window.location.href='信封.html'">IMMERSION</button>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      if (password === 'mars') {
+        // Redirect to the main website (change 'main_website.html' to your actual page)
+        window.location.href = '采访视频.html';
+      } else {
+        alert('Incorrect password, please try again.');
+      }
+    }
+  </script>
+</body>
+</html>

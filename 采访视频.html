@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What do you think of Elon Musk's Mars Colonization Plan?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> <!-- 引入科技感字体 -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif; /* 使用新字体 */
+            background: url('cox442721_A_vast_ancient_landscape_of_Mars_its_red_rocky_terrai_79e16385-f419-4caf-a218-77689048fbcd.png') no-repeat center center fixed; /* 替换为您的宇宙背景图片URL */
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: auto; /* 让页面高度自适应内容 */
+            min-height: 100vh; /* 确保页面至少占满屏幕 */
+        }
+
+        /* 流星动画 */
+        .meteor {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.8); /* 白色流星 */
+            opacity: 0; /* 初始透明度 */
+            filter: blur(2px); /* 添加模糊效果 */
+            animation: meteor-animation 3s linear infinite; /* 动画 */
+        }
+
+        @keyframes meteor-animation {
+            0% {
+                transform: translate(-100px, -100px);
+                opacity: 1; /* 开始时可见 */
+            }
+            50% {
+                transform: translate(50vw, 50vh) rotate(30deg); /* 中间位置，稍微旋转 */
+                opacity: 1; /* 保持可见 */
+            }
+            100% {
+                transform: translate(100vw, 100vh); /* 从左上角到右下角 */
+                opacity: 0; /* 结束时消失 */
+            }
+        }
+
+        /* 生成多个流星 */
+        .meteor:nth-child(1) { animation-delay: 0s; }
+        .meteor:nth-child(2) { animation-delay: 0.5s; }
+        .meteor:nth-child(3) { animation-delay: 1s; }
+        .meteor:nth-child(4) { animation-delay: 1.5s; }
+        .meteor:nth-child(5) { animation-delay: 2s; }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 2rem;
+        }
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        video {
+            width: 80%;
+            height: auto;
+            max-height: 70vh; /* 限制视频的最大高度 */
+        }
+        .comments-container {
+            width: 80%;
+            margin: 1rem 0;
+        }
+        .comments-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem; /* 标题与评论框的间距 */
+            text-align: center; /* 标题居中 */
+        }
+        .comments {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* 左对齐 */
+        }
+        .comment {
+            margin: 0.5rem 0;
+            padding: 0.5rem 1rem;
+            background-color: rgba(255, 255, 255, 0.1); /* 设置气泡背景 */
+            border-radius: 15px;
+            max-width: 70%; /* 最大宽度 */
+            align-self: flex-start; /* 左对齐气泡 */
+            position: relative; /* 使气泡定位相对 */
+        }
+        .comment::after {
+            content: '';
+            position: absolute;
+            bottom: 100%; /* 在气泡上方 */
+            left: 20px; /* 调整箭头位置 */
+            margin-left: -5px; /* 使箭头居中 */
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent rgba(255, 255, 255, 0.1) transparent; /* 气泡箭头颜色 */
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        input[type="text"] {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px;
+            width: 70%;
+            margin-right: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Orbitron', sans-serif; /* 为输入框也应用新字体 */
+        }
+        button.publish {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif; /* 为按钮也应用新字体 */
+        }
+        button.publish:hover {
+            background-color: #0056b3;
+        }
+        .introduction {
+            width: 80%;
+            margin: 2rem 0; /* 上下间距 */
+            padding: 1rem; /* 添加内边距 */
+            background-color: rgba(255, 255, 255, 0.1); /* 透明背景 */
+            border-radius: 10px; /* 圆角 */
+            text-align: left; /* 左对齐 */
+            font-size: 1.2rem; /* 调整字体大小 */
+            line-height: 1.5; /* 行间距 */
+        }
+        .call-to-action {
+            margin: 2rem 0; /* 上下间距 */
+            padding: 1rem; /* 添加内边距 */
+            background-color: black; /* 黑色背景 */
+            color: white;
+            border-radius: 10px; /* 圆角 */
+            font-size: 1.5rem; /* 字体大小 */
+            cursor: pointer;
+            text-align: center; /* 字体居中 */
+            width: 80%; /* 宽度 */
+            transition: background-color 0.3s; /* 背景色渐变效果 */
+            text-decoration: none; /* 去掉下划线 */
+        }
+        .call-to-action:hover {
+            background-color: #333; /* 悬停时改变背景色 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 流星元素 -->
+    <div class="meteor"></div>
+    <div class="meteor"></div>
+    <div class="meteor"></div>
+    <div class="meteor"></div>
+    <div class="meteor"></div>
+
+    <h1>What do you think of Elon Musk's Mars Colonization Plan?</h1>
+    <p>Let's hear what our classmates think 🤔</p>
+    <video controls>
+        <source src="火星移民街访.mp4" type="video/mp4"> <!-- 替换为您的视频URL -->
+        Your browser does not support the video tag.
+    </video>
+    <div class="comments-container">
+        <div class="comments-title">Comments</div>
+        <div class="comments" id="comments">
+            <div class="comment">Comment 1: I think it's ambitious!🤩</div>
+            <div class="comment">Comment 2: We should focus on Earth🌍 first.🤔</div>
+            <div class="comment">Comment 3: Mars has potential for new life.</div>
+            <div class="comment">Comment 4: The technology is fascinating!</div>
+            <div class="comment">Comment 5: We need to protect our own planet first.😕</div>
+        </div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="commentInput" placeholder="Share your thoughts..." />
+        <button class="publish" onclick="addComment()">Publish</button>
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="introduction">
+        <p>Elon Musk's ambitious plan to colonize Mars has piqued the curiosity of many, but details about this revolutionary project remain fragmented. 🤔</p>
+        <p>Explore the captivating reality of this history-altering endeavor on our website. 🌍🚀 We've gathered the latest updates, technical insights, and expert analysis to help you understand the future of human migration to the Red Planet. 🔍💡</p>
+    </div>
+
+    <!-- Call to Action Button -->
+    <a href="马斯克人物介绍.html" class="call-to-action">Join us as we delve into the captivating details of this history-altering plan that will reshape the future of humanity! 🌌🤩</a> <!-- 替换为您的子页面URL -->
+
+    <script>
+        function addComment() {
+            const input = document.getElementById('commentInput');
+            const commentText = input.value.trim();
+            if (commentText) {
+                const commentsDiv = document.getElementById('comments');
+                const newComment = document.createElement('div');
+                newComment.className = 'comment';
+                newComment.textContent = commentText;
+                commentsDiv.appendChild(newComment);
+                input.value = ''; // Clear the input field
+            }
+        }
+    </script>
+</body>
+</html>

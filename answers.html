@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Migration Q&A</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        #bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .nav-menu {
+            background: rgba(255,255,255,0.8);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-menu a {
+            color: #000;
+            text-decoration: none;
+            margin-right: 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .title {
+            color: #fff;
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 2rem 0;
+            text-transform: none;
+            font-weight: normal;
+        }
+
+        .content-section {
+            background: rgba(255,255,255,0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.8);
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        .image-section {
+            margin: 2rem 0;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h2 {
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        section {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img src="mars.webp" id="bg-image" alt="Mars Background">
+
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to Questions</a>
+
+        <div class="nav-menu">
+            <a href="#q1">Question 1</a>
+            <a href="#q2">Question 2</a>
+            <a href="#q3">Question 3</a>
+            <a href="#q4">Question 4</a>
+            <a href="#q5">Question 5</a>
+        </div>
+
+        <section id="q1">
+            <h1 class="title">Is Mars Really Suitable for Human Habitation?</h1>
+            <div class="content-section">
+                <p>
+                    Ah, Mars! The dusty red rock that's been orbiting the back of humanity's imagination for centuries. Why has Elon Musk, the man behind SpaceX and possibly your next electric car, chosen Mars as humanity's next big destination? Well, buckle up, because we're about to take a rocket ride through the reasons why this chilly neighbor is the hot spot for our cosmic migration dreams.
+                </p>
+    
+                <h2>Proximity: It's Practically Next Door!</h2>
+                <div class="image-section">
+                    <img src="distance.jpeg" alt="Mars Distance from Earth" loading="lazy">
+                </div>
+                <p>
+                    First off, Mars isn't some distant star system. It's right here in our cosmic backyard, only 140 million miles away (give or take a few million, depending on the traffic...err, orbit). This makes it one of the most accessible destinations for interplanetary travel, unlike Venus, which has a bit of a "surface-of-the-sun" vibe going on.
+                </p>
+                <p>
+                    Getting to Mars is no Sunday drive, but with rockets like SpaceX's Starship, the journey is manageable—about six months. So, yes, it's a long commute, but think of the views!
+                </p>
+    
+                <h2>It's Got the Right Vibes</h2>
+                <div class="image-section">
+                    <img src="environment.webp" alt="Mars Environment" loading="lazy">
+                </div>
+                <p>Mars isn't just close—it's also got some living-friendly features (relatively speaking, of course).</p>
+                
+                <ul class="list">
+                    <li>
+                        <strong>Sunny Days Ahead:</strong> Mars gets plenty of sunlight, which is fantastic if you're planning on running your life on solar panels (and if you've met Musk, you know that's kind of his thing). Sure, the red planet is colder than your freezer, but hey, at least you won't have to worry about sunburn!
+                    </li>
+                    <li>
+                        <strong>Gravity That Gets You Moving:</strong> Unlike the Moon's "bunny hop" gravity, Mars has about 38% of Earth's gravity—enough to keep you grounded without crushing your dreams of bounding around like a superhero.
+                    </li>
+                    <li>
+                        <strong>A Day You Can Count On:</strong> A Martian day, or "sol," lasts 24.6 hours. That's practically Earth-time! No confusing "six months of darkness" nonsense like you'd get on other planets. Your sleep schedule might actually survive the trip.
+                    </li>
+                </ul>
+    
+                <h2>Atmosphere: It's a Fixer-Upper</h2>
+                <div class="image-section">
+                    <img src="Atmosphere.jpg" alt="Mars Atmosphere Comparison" loading="lazy">
+                </div>
+                <p>
+                    Yes, Mars' atmosphere is mostly carbon dioxide, which means you can't exactly breathe it (minor detail). But CO₂ has its uses! For one, it's perfect for growing plants, provided you compress it a bit. And let's not forget the Sabatier reaction, a nifty little chemical trick that can turn CO₂ into rocket fuel. So, while it's no beachside breeze, the Martian atmosphere could help sustain life and fuel our spaceships. Not bad for a planet that's been uninhabited for 4.5 billion years.
+                </p>
+    
+                <h2>Resources: BYO Water (Sort of)</h2>
+                <div class="image-section">
+                    <img src="resource.jpeg" alt="Mars Resources" loading="lazy">
+                </div>
+                <p>
+                    Mars isn't entirely barren. Beneath its surface lies water ice, and its soil contains minerals that could be used to build habitats or grow food. With the right tech, Martian pioneers could use these resources to thrive without relying on Earth for every little thing. It's like camping, but instead of marshmallows, you're mining for survival. Fun, right?
+                </p>
+    
+                <h2>Humanity's Backup Plan</h2>
+                <div class="image-section">
+                    <img src="colony.jpg" alt="Mars Colony" loading="lazy">
+                </div>
+                <p>
+                    Here's the kicker: Musk isn't just looking to colonize Mars for funsies (although, let's admit, it <em>does</em> sound cool). The real mission? Ensuring humanity's survival. Earth is great and all, but between climate change, asteroid threats, and, you know, our habit of fighting over everything, it's smart to have a backup plan. A city on Mars would be like a cosmic insurance policy for human civilization.
+                </p>
+    
+                <h2>The Verdict</h2>
+                <p>
+                    Mars isn't exactly a paradise—it's cold, dusty, and devoid of Wi-Fi (for now). But with a bit of elbow grease (and by elbow grease, we mean advanced space engineering), it could become humanity's second home. And as Musk puts it, becoming a multi-planetary species isn't just exciting—it's necessary.
+                </p>
+                <p>
+                    So, pack your space boots and dream big. The Red Planet awaits, and who knows? One day, you might be sipping recycled water while gazing at twin moons from your Martian porch. Talk about out-of-this-world living!
+                </p>
+            </div>
+        </section>
+
+        <section id="q2">
+            <h1 class="title">What Are the Chances of Success?</h1>
+            <div class="content-section">
+                <!-- Content for Q2 -->
+            </div>
+        </section>
+
+        <section id="q3">
+            <h1 class="title">How Will the Mars Base Look?</h1>
+            <div class="content-section">
+                <!-- Content for Q3 -->
+            </div>
+        </section>
+
+        <section id="q4">
+            <h1 class="title">What's the Cost of Mars Migration?</h1>
+            <div class="content-section">
+                <!-- Content for Q4 -->
+            </div>
+        </section>
+
+        <section id="q5">
+            <h1 class="title">What Will the Mars City Look Like?</h1>
+            <div class="content-section">
+                <!-- Content for Q5 -->
+            </div>
+        </section>
+    </div>
+</body>
+</html>

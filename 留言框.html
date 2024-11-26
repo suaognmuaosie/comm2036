@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letter to Zara</title>
+  <style>
+    /* 页面整体样式 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('cox442721_A_vintage_35mm_color_film-like_photograph_of_an_astro_fe1ba0f2-705c-4a64-9a6a-35b0dc3ea137.png'); /* 替换为您的背景图路径 */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 118vh;
+    }
+
+    /* 标题样式 */
+    h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 4rem;
+      font-weight: bold;
+      margin: 80px 0 0; /* 增加顶部间距 */
+      text-align: center;
+    }
+
+    /* 描述文字样式 */
+    .description {
+      font-size: 1.5rem;
+      font-weight: normal;
+      text-align: center;
+      margin: 20px 0 40px; /* 增加上下间距 */
+      line-height: 1.5;
+      width: 800px; /* 描述文字宽度与留言框一致 */
+      margin-bottom: 10px; /* 增加与输入框之间的间距 */
+    }
+
+    /* 留言框样式（使用图片作为背景） */
+    .message-box {
+      width: 600px; /* 留言框宽度 */
+      height: 800px; /* 留言框高度 */
+      background-image: url('留言框无背景.png'); /* 替换为您的留言框图片路径 */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none; /* 去除默认边框 */
+      margin-bottom: 1px; /* 增加与输入框之间的间距 */
+      display: flex;
+      align-items: center;
+      overflow-y: auto; /* 显示滚动条 */
+      justify-content: center;
+      padding: 20px; /* 内边距 */
+      font-size: 1rem;
+      color: #333;
+      text-align: center;
+    }
+
+    /* 输入框样式 */
+    .input-box {
+      width: 600px; /* 与留言框宽度一致 */
+      height: 50px; /* 输入框高度 */
+      border: 2px solid #cfcfcf;
+      border-radius: 25px; /* 圆角 */
+      padding: 0 15px; /* 内边距 */
+      font-size: 1rem;
+      outline: none;
+      box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px; /* 增加与信封按钮的间距 */
+      margin-top: 20px; /* 向上移动 */
+    }
+
+    /* 信封按钮样式 */
+    .envelope-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px; /* 向上移动 */
+    }
+
+    .envelope-button img {
+      width: 80px; /* 信封按钮宽度 */
+      height: auto;
+    }
+
+    /* BACK 按钮样式 */
+    .back-button {
+      position: absolute; /* 绝对定位 */
+      bottom: 5px; /* 距离底边的距离，您可以调整此值 */
+      right: 5px; /* 距离右边的距离，您可以调整此值 */
+      background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
+      color: white; /* 字体颜色 */
+      border: none; /* 无边框 */
+      padding: 10px 20px; /* 内边距 */
+      border-radius: 5px; /* 圆角 */
+      cursor: pointer; /* 鼠标悬停效果 */
+      font-size: 1rem;
+    }
+
+    /* 左上角固定文本框样式 */
+    .fixed-text-box {
+      position: fixed; /* 固定定位 */
+      top: 10px; /* 距离顶部的距离 */
+      left: 10px; /* 距离左侧的距离 */
+      background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+      color: white; /* 文本颜色 */
+      padding: 10px 20px; /* 内边距 */
+      font-size: 1.2rem; /* 字体大小 */
+      font-weight: bold; /* 加粗 */
+      border-radius: 5px; /* 圆角 */
+    }
+
+    /* 响应式适配 */
+    @media (max-width: 768px) {
+      .message-box, .input-box, .description {
+        width: 90%; /* 在小屏幕上，宽度调整为屏幕的90% */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 左上角固定文本框 -->
+  <div class="fixed-text-box">IMMERSION</div>
+
+  <!-- 标题 -->
+  <h1>Letter to Zara...</h1>
+
+  <!-- 描述文字 -->
+  <p class="description">
+    Do you have something to say to Zara or a question to ask her?  
+    Write it all down here in a letter back to Zara!
+  </p>
+
+  <!-- 留言框 -->
+  <div class="message-box" id="messageBox">
+    Your message will appear here...
+  </div>
+
+  <!-- 输入框 -->
+  <input type="text" class="input-box" id="inputBox" placeholder="Write your message here...">
+
+  <!-- 信封按钮 -->
+  <button class="envelope-button" id="envelopeButton">
+    <img src="信封无背景.png" alt="Send"> <!-- 替换为您的信封图片路径 -->
+  </button>
+
+  <!-- BACK 按钮 -->
+  <a href="马斯克火星移民.html" class="back-button" id="backButton">BACK</a> <!-- 替换为您的目标页面链接 -->
+
+  <script>
+    // 获取DOM元素
+    const inputBox = document.getElementById('inputBox'); // 输入框
+    const messageBox = document.getElementById('messageBox'); // 留言框
+    const envelopeButton = document.getElementById('envelopeButton'); // 信封按钮
+
+    // 点击信封按钮时，将输入框的内容显示到留言框中
+    envelopeButton.addEventListener('click', () => {
+      const message = inputBox.value.trim(); // 获取并去除输入框内容的空格
+      if (message) {
+        messageBox.textContent = message; // 将内容显示到留言框
+        inputBox.value = ''; // 清空输入框
+      } else {
+        messageBox.textContent = 'Your message will appear here...'; // 如果为空，显示默认提示
+      }
+    });
+  </script>
+</body>
+</html>
